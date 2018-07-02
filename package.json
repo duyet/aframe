@@ -16,7 +16,9 @@
     "release:bump": "npm version patch --preminor && git commit -a -C HEAD --amend",
     "release:push": "npm login && npm publish && git push --follow-tags",
     "lint": "semistandard -v $(git ls-files '*.js') | snazzy",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": "aframevr/aframe",
   "license": "MIT",
@@ -35,7 +37,8 @@
     "uglifyjs": "^2.4.10"
   },
   "dependencies": {
-    "aframe-core": "^0.1.1"
+    "aframe-core": "^0.1.1",
+    "snyk": "^1.88.0"
   },
   "link": true,
   "browserify": {
@@ -65,5 +68,6 @@
     "three",
     "components",
     "elements"
-  ]
+  ],
+  "snyk": true
 }
